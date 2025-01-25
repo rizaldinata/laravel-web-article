@@ -20,9 +20,12 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
+    
+    $posts = Post::latest()->get();
+
     return view('posts', [
         'title' => 'Posts Page',
-        'posts' => Post::all()
+        'posts' => $posts
     ]);
 });
 
